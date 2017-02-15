@@ -196,6 +196,9 @@
 
         //creating the navigation dots
         if (options.navigation) {
+            if (document.querySelector('#fp-nav > ul >li')) {
+                document.querySelector('#fp-nav').remove();
+            }
             addVerticalNavigation();
         }
 
@@ -606,7 +609,7 @@
 
         if(options.autoScrolling && !options.scrollBar){
 
-            css(document.body, {
+            /*css(document.body, {
                 'overflow': 'hidden',
                 'height': '100%'
             });
@@ -614,7 +617,7 @@
             css(getByTag('html'),{
                 'overflow': 'hidden',
                 'height': '100%'
-            });
+            });*/
 
             setRecordHistory(options.recordHistory, 'internal');
 

@@ -16,7 +16,7 @@ Invite me to a coffee
 
 This is in Alpha version and support for it won't be provided yet.
 This light version of fullpage.js won't provide some options available in the jQuery version such as:
-- `responsiveWidth` and `responsiveHeight` 
+- `responsiveWidth` and `responsiveHeight`
 - `lockAnchors`
 - `scrollOverflow`
 - `verticalCentered`
@@ -116,4 +116,15 @@ In contrast with the calls from the the jQuery version of fullPage.js:
 ```javascript
 //calling a function from the jQuery version of fullPage.js
 $.fn.fullpage.moveSectionDown();
+```
+
+## Problem in Angularjs
+When we access another page from Fullpage in Angular, the page scrolling is disabled.
+So I made some changes to fix this problem. Also we need ad the following to controller.
+```javascript
+$scope.$on('$locationChangeStart', function($event) {
+    document.querySelector('html').removeAttribute('class')
+    document.querySelector('html').removeAttribute('style')
+    document.querySelector('body').removeAttribute('style')
+});
 ```
